@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../screens/cars_screen.dart';
 import '../models/car_models.dart';
 
 class CarCard extends StatelessWidget {
@@ -19,46 +18,25 @@ class CarCard extends StatelessWidget {
             blurRadius: 10,
             color: Colors.black.withOpacity(0.05),
             offset: const Offset(0, 5),
-          )
+          ),
         ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
-          /// Imagen
           Expanded(
-            child: Image.asset(
-              car.image,
-              fit: BoxFit.contain,
-            ),
+            child: Image.network(car.image, fit: BoxFit.contain),
           ),
-
           const SizedBox(height: 10),
-
-          /// Nombre
           Text(
             car.name,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
-
-          Text(
-            car.brand,
-            style: const TextStyle(color: Colors.grey),
-          ),
-
+          Text(car.brand, style: const TextStyle(color: Colors.grey)),
           const Spacer(),
-
-          /// Precio
           Text(
             "\$${car.price}/day",
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-            ),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           ),
         ],
       ),
